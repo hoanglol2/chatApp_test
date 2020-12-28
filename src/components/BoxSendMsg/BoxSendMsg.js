@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,17 +8,50 @@ import {
   TextInput,
 } from 'react-native';
 import {NEXT} from '../../assets/images';
+import {ChatUserList} from '../../store/actions/chatActions';
 
-const BoxSendMsg = () => (
-  <View style={styles.container}>
-    <TextInput placeholder="Gõ tin nhắn của bạn..." style={styles.input} />
-    <TouchableOpacity style={styles.boxIcon}>
-      <Image style={styles.icon} source={NEXT} />
-    </TouchableOpacity>
-  </View>
-);
+
+
+const BoxSendMsg = () => {
+  const text = useFormInput('');
+  const submit = useSubmit(text.value);
+
+  return (
+    <View style={styles.container}>
+      <TextInput {...text} placeholder="Gõ tin nhắn của bạn..." style={styles.input} />
+      <TouchableOpacity {...submit} style={styles.boxIcon}>
+        <Image style={styles.icon} source={NEXT} />
+      </TouchableOpacity>
+    </View>
+  )
+};
 
 export default BoxSendMsg;
+
+function useFormInput(initialValue) {
+  const [value, setValue] = useState(initialValue);
+
+  function handleChangeText(text) {
+    setValue(text);
+  }
+  return {
+    value,
+    onChangeText: handleChangeText
+  }
+}
+
+function useSubmit(value) {
+  function handleSubmit() {
+    ChatUserList(value);
+  }
+  return {
+    onPress: handleSubmit
+  }
+}
+
+
+
+
 
 const row = {
   flexDirection: 'row',

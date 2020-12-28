@@ -8,5 +8,9 @@ export const LOAD_MESSAGE = 'LOAD_MESSAGE';
 export const CLEAR_ACTIVE_MSGS = 'CLEAR_ACTIVE_MSGS';
 
 // URI
+// export const API_URI = `http://192.168.56.1:3000`;
+// export const API_URI2 = `http://192.168.40.2:3000`;
+
+
 export const API_URI = `http://192.168.56.1:3000`;
-export const API_URI2 = `http://192.168.40.2:3000`;
+

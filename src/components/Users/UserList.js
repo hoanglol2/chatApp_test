@@ -9,8 +9,11 @@ import {
 import {Bot} from '../../assets/images';
 import UserContent from './UserContent';
 import UserHeader from './UserHeader';
+import {ChatUserList} from '../../store/actions/chatActions';
 
 const UserList = ({navigation}) => {
+  ChatUserList();
+
   return (
     <>
       <View style={styles.container}>

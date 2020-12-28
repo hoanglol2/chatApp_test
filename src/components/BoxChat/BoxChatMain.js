@@ -3,6 +3,8 @@ import {View, StyleSheet, ScrollView, Text, Image} from 'react-native';
 import BoxSendMsg from '../BoxSendMsg/BoxSendMsg';
 import {AVATAR1} from '../../assets/images';
 
+// import {SentMsg} from '../../store/actions/chatActions';
+
 const dataMessages = [
   {status: true, avatar: AVATAR1, message: 'Xin chào bạn?', time: '18: 35'},
   {status: false, avatar: AVATAR1, message: 'Ơi tôi đây!', time: '18: 39'},
@@ -14,9 +16,8 @@ const dataMessages = [
   },
 ];
 
-const BoxChatMain = () => (
-  <View style={styles.container}>
-    <ScrollView>
+{
+  /* <ScrollView>
       {dataMessages.map(({status, avatar, message, time}, index) => (
         <View key={index}>
           {status ? (
@@ -35,10 +36,36 @@ const BoxChatMain = () => (
           )}
         </View>
       ))}
-    </ScrollView>
-    <BoxSendMsg />
-  </View>
-);
+    </ScrollView> */
+}
+
+const BoxChatMain = () => {
+  // const data = SentMsg();
+
+  // console.log(data);
+
+  return (
+    <View style={styles.container}>
+      {/* {data == "" ? null : (<View style={styles.wrapBoxMsg}>
+        <View style={styles.wrapImage}>
+          <Image style={styles.image} source={AVATAR1} />
+          <Text style={styles.text}>{data}</Text>
+        </View>
+        <Text style={styles.textTime}>13: 00</Text>
+      </View>)} */}
+
+      {/* {data == '' ? null : (
+        <View style={styles.wrapBoxMsg}>
+          <Text style={styles.textTime}>14: 00</Text>
+          <Text style={styles.textMessage}>{data}</Text>
+        </View>
+      )} */}
+      <Text>cho du lieu</Text>
+
+      <BoxSendMsg />
+    </View>
+  );
+};
 
 export default BoxChatMain;
 
